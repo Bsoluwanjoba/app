@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-// import { useRevenueData } from '../../hooks/useRevenueData';
+import { useRevenueData } from '../../hooks/useRevenueData';
 
 const RevenueDashboard = () => {
   const { revenueData, recentTransactions, totalRevenue, avgRevenue, loading, error } = useRevenueData();

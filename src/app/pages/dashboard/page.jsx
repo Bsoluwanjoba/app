@@ -3,7 +3,7 @@ import { useRevenueData } from '../../hooks/useRevenueData';
 import Link from 'next/link';
 
 export default function page() {
-    const { totalRevenue, loading, error } = useRevenueData();
+    // const { totalRevenue, loading, error } = useRevenueData();
   return (
     <div classname="mt-5">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">

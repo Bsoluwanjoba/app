@@ -16,7 +16,7 @@ export default function page() {
           ) : (
             <p className="text-2xl font-bold">${totalRevenue.toLocaleString()}</p>
           )}
-          <Link href="/dashboard/revenue" className="text-blue-500 hover:underline mt-2 inline-block">
+          <Link href="/pages/dashboard/revenue" className="text-blue-500 hover:underline mt-2 inline-block">
             View Details
           </Link>
         </div>

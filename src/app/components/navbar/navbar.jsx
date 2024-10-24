@@ -2,8 +2,8 @@
 import { useState } from "react"
 import { IoIosArrowDropleftCircle } from "react-icons/io"
 import { IoIosArrowDroprightCircle } from "react-icons/io"
-import { MdSpaceDashboard, MdProductionQuantityLimits } from "react-icons/md"
-import { FaUser, FaChartLine} from "react-icons/fa"
+import { MdSpaceDashboard, MdProductionQuantityLimits, MdCancel } from "react-icons/md"
+import { FaUser, FaChartLine, } from "react-icons/fa"
 import { RiListOrdered2 } from "react-icons/ri"
 import { BiSolidReport } from "react-icons/bi"
 import { BsLayoutTextWindowReverse } from "react-icons/bs"
@@ -11,6 +11,7 @@ import { ImEnter } from "react-icons/im"
 import { FaChevronUp, FaChevronDown } from "react-icons/fa"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import {AiOutlineMenu, AiCancel} from 'react-icons/ai'
 
 
 
@@ -19,6 +20,11 @@ function Navbar() {
     const [isOpen, setIsOpen] = useState(true)
     const [usersOpen, setUsersOpen] = useState(false)
     const [productsOpen, setProductsOpen] = useState(false)
+    const [nav, setNav] = useState(false)
+
+        function handleClick(){
+            setNav(!nav)
+        }
 
         function handleNav() {
             setIsOpen(!isOpen)
@@ -40,6 +46,81 @@ function Navbar() {
     <div>
         <section className="">
             {/* Mobile Nav */}
+                <header>{nav ? <MdCancel onClick={handleClick} size={38} className='absolute top-[10px] right-4 z-[99] text-[#0ac] md:hidden'/> : <AiOutlineMenu onClick={handleClick} size={32} className='absolute top-[12px] right-4 z-[99] text-[#0ac] md:hidden'/>}</header>
+
+                    {nav ? (
+                        <nav className=" md:hidden w-full h-screen absolute z-20 top-0 bg-white opacity-90">
+                            <div className='h-screen items-center justify-center text-white relative -bottom-40 p-3 space-y-6 ml-[90px]'>
+                            <Link href="/" className={`${
+                    isLinkActive('/') ? 'bg-[#0ac] text-white rounded-md' : ''
+                }  hover:rounded-md  flex gap-3 p-3 border border-[#116] w-[200px] rounded-md`}>
+                            <p><MdSpaceDashboard size={25} className="text-[#0ac]"/></p>
+                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Dashboard</p>
+                        </Link>
+
+                        <p className="flex gap-x-3 gap-y-5 p-3 items-center border border-[#116] rounded-md w-[200px] justify-center" onClick={toggleUsers}>
+                            <p><FaUser size={25} className="text-[#0ac]"/></p>
+                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Users
+                            
+                            </p>
+                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : ''}`}>{usersOpen ? <FaChevronUp size={15} className="text-[#0ac] font-medium tracking-wider"/> : <FaChevronDown size={15} className="text-[#0ac] font-medium tracking-wider"/>}</p>
+                            
+                        </p>
+
+                                            {usersOpen && (
+                                        <div className="pl-8 py-1 block text-[#0ac] font-medium tracking-wider leading-[60px]">
+                                        <Link href='/' className='border border-[#116] w-[150px] p-2 rounded-md space-y-3'>Consumers</Link> <br />
+                                        <Link href='/' className='border border-[#116] w-[190px] p-2 rounded-md'>Vendors</Link>
+                                        </div>
+                                        )}
+
+                        <p className="flex gap-3 p-3 items-center  border border-[#116] w-[200px] rounded-md" onClick={toggleProducts}>
+                            <p><MdProductionQuantityLimits size={25} className="text-[#0ac]"/></p>
+                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'} flex items-center gap-2`}>Products
+                            </p>
+                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : ''}`}>{productsOpen ? <FaChevronUp size={15} className="text-[#0ac] font-medium tracking-wider"/> : <FaChevronDown size={15} className="text-[#0ac] font-medium tracking-wider"/>}</p>
+                        </p>
+
+                                        {productsOpen && (
+                                    <div className="block pl-8 py-2  text-[#0ac] font-medium tracking-wider leading-[60px]">
+                                        <Link className=" hover:bg-gray-100 border border-[#116] w-[190px] p-2 rounded-md" href='/'>Product Inventory</Link> <br />
+                                        <Link className=" hover:bg-gray-100 border border-[#116] w-[190px] p-2 rounded-md" href='/'>Managing Products</Link>
+                                    </div>
+                                    )}
+
+                        <Link className="flex gap-3 p-3 items-center  border border-[#116] w-[200px] rounded-md" href='/'>
+                            <p><RiListOrdered2 size={25} className="text-[#0ac]"/></p>
+                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Orders</p>
+                        </Link>
+
+                        <Link className={`flex gap-3 p-3 items-center  border border-[#116] w-[200px] rounded-md ${
+                    isLinkActive('/pages/dashboard/reports') ? 'bg-[#0ac] text-white rounded-md' : 'text-[#0ac]'
+                }`} href='/pages/dashboard/reports'>
+                            <p><BiSolidReport size={25} className="text-[#0ac]"/></p>
+                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Reports</p>
+                        </Link>
+
+                        <Link className={`flex gap-3 p-3 items-center  border border-[#116] w-[200px] rounded-md ${
+                    isLinkActive('/pages/dashboard/revenue') ? 'bg-[#0ac] text-white rounded-md' : 'text-[#0ac]'
+                }`} href='/pages/dashboard/revenue'>
+                            <p><BsLayoutTextWindowReverse size={25} className=""/></p>
+                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : ' font-medium tracking-wider'}`}>Revenue</p>
+                        </Link>
+
+                        <Link className="flex gap-3 p-3 items-center  border border-[#116] w-[200px] rounded-md" href='/pages/dashboard/sales'>
+                            <p><FaChartLine size={25} className="text-[#0ac]"/></p>
+                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Sales</p>
+                        </Link>
+                            </div>
+                        </nav>
+                        // <div className="mt-[26.5em]">
+                        //     <p><ImEnter /></p>
+                        //     <button>Logout</button>
+                        // </div>
+
+                    ) : 
+                    ('')}
+
         </section>
 
 
@@ -94,14 +175,16 @@ function Navbar() {
                 <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Orders</p>
             </Link>
 
-            <Link className="flex gap-3 p-3 items-center border-b-2 border-[#116]" href='/'>
+            <Link className={`flex gap-3 p-3 items-center border-b-2 border-[#116]  ${
+        isLinkActive('/pages/dashboard/reports') ? 'bg-[#0ac] text-white rounded-md' : 'text-[#0ac]'
+    }`} href='/pages/dashboard/reports'>
                 <p><BiSolidReport size={25} className="text-[#0ac]"/></p>
                 <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Reports</p>
             </Link>
 
             <Link className={`flex gap-3 p-3 items-center border-b-2 border-[#116] ${
-        isLinkActive('/dashboard/revenue') ? 'bg-[#0ac] text-white rounded-md' : 'text-[#0ac]'
-    }`} href='/dashboard/revenue'>
+        isLinkActive('/pages/dashboard/revenue') ? 'bg-[#0ac] text-white rounded-md' : 'text-[#0ac]'
+    }`} href='/pages/dashboard/revenue'>
                 <p><BsLayoutTextWindowReverse size={25} className=""/></p>
                 <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : ' font-medium tracking-wider'}`}>Revenue</p>
             </Link>

@@ -17,7 +17,7 @@ export default function Header () {
                     <div className="w-full flex justify-between bg-white shadow-2xl items-center flex-wrap">
 
               {/* Logo */}
-              <section className="p-3">
+              <section className="p-3 relative z-[99]">
               <Image src="/HOR.LOGO-BLUE.png" alt="macronics" width={200} height={200}  />
               </section>
 

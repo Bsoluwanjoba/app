@@ -15,7 +15,7 @@ import {AiOutlineMenu, AiCancel} from 'react-icons/ai'
 
 
 
-function Navbar() {
+function Navbarii() {
 
     const [isOpen, setIsOpen] = useState(true)
     const [usersOpen, setUsersOpen] = useState(false)
@@ -76,7 +76,7 @@ function Navbar() {
 
                         <p className="flex gap-3 p-3 items-center  border border-[#116] w-[200px] rounded-md" onClick={toggleProducts}>
                             <p><MdProductionQuantityLimits size={25} className="text-[#0ac]"/></p>
-                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'} flex items-center gap-2`}>Products
+                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'} flex items-center gap-2`}>Product Management
                             </p>
                             <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : ''}`}>{productsOpen ? <FaChevronUp size={15} className="text-[#0ac] font-medium tracking-wider"/> : <FaChevronDown size={15} className="text-[#0ac] font-medium tracking-wider"/>}</p>
                         </p>
@@ -90,16 +90,10 @@ function Navbar() {
 
                         <Link className="flex gap-3 p-3 items-center  border border-[#116] w-[200px] rounded-md" href='/'>
                             <p><RiListOrdered2 size={25} className="text-[#0ac]"/></p>
-                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Orders</p>
+                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Sales</p>
                         </Link>
 
-                        <Link className={`flex gap-3 p-3 items-center  border border-[#116] w-[200px] rounded-md ${
-                    isLinkActive('/pages/dashboard/reports') ? 'bg-[#0ac] text-white rounded-md' : 'text-[#0ac]'
-                }`} href='/pages/dashboard/reports'>
-                            <p><BiSolidReport size={25} className="text-[#0ac]"/></p>
-                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Reports</p>
-                        </Link>
-
+                      
                         <Link className={`flex gap-3 p-3 items-center  border border-[#116] w-[200px] rounded-md ${
                     isLinkActive('/pages/dashboard/revenue') ? 'bg-[#0ac] text-white rounded-md' : 'text-[#0ac]'
                 }`} href='/pages/dashboard/revenue'>
@@ -107,10 +101,7 @@ function Navbar() {
                             <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : ' font-medium tracking-wider'}`}>Revenue</p>
                         </Link>
 
-                        <Link className="flex gap-3 p-3 items-center  border border-[#116] w-[200px] rounded-md" href='/pages/dashboard/sales'>
-                            <p><FaChartLine size={25} className="text-[#0ac]"/></p>
-                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Sales</p>
-                        </Link>
+                       
                             </div>
                         </nav>
                         // <div className="mt-[26.5em]">
@@ -158,7 +149,7 @@ function Navbar() {
 
             <p className="flex gap-3 p-3 items-center border-b-2 border-[#116]" onClick={toggleProducts}>
                 <p><MdProductionQuantityLimits size={25} className="text-[#0ac]"/></p>
-                <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'} flex items-center gap-2`}>Products
+                <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'} flex items-center gap-2`}>Product Management
                 </p>
                 <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : ''}`}>{productsOpen ? <FaChevronUp size={15} className="text-[#0ac] font-medium tracking-wider"/> : <FaChevronDown size={15} className="text-[#0ac] font-medium tracking-wider"/>}</p>
             </p>
@@ -172,30 +163,16 @@ function Navbar() {
 
             <Link className="flex gap-3 p-3 items-center border-b-2 border-[#116]" href='/'>
                 <p><RiListOrdered2 size={25} className="text-[#0ac]"/></p>
+                <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Revenue</p>
+            </Link>
+            <Link className="flex gap-3 p-3 items-center border-b-2 border-[#116]" href='/'>
+                <p><RiListOrdered2 size={25} className="text-[#0ac]"/></p>
                 <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Orders</p>
             </Link>
 
-            <Link className={`flex gap-3 p-3 items-center border-b-2 border-[#116]  ${
-        isLinkActive('/pages/dashboard/reports') ? 'bg-[#0ac] text-white rounded-md' : 'text-[#0ac]'
-    }`} href='/pages/dashboard/reports'>
-                <p><BiSolidReport size={25} className="text-[#0ac]"/></p>
-                <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Reports</p>
-            </Link>
-
-            <Link className={`flex gap-3 p-3 items-center border-b-2 border-[#116] ${
-        isLinkActive('/pages/dashboard/revenue') ? 'bg-[#0ac] text-white rounded-md' : 'text-[#0ac]'
-    }`} href='/pages/dashboard/revenue'>
-                <p><BsLayoutTextWindowReverse size={25} className=""/></p>
-                <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : ' font-medium tracking-wider'}`}>Revenue</p>
-            </Link>
-
-            <Link className="flex gap-3 p-3 items-center  border-b-2 border-[#116]" href='/dashboard/sales'>
-                <p><FaChartLine size={25} className="text-[#0ac]"/></p>
-                <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Sales</p>
-            </Link>
             </nav>
 
-            <div className="mt-[7.2em] flex items-center gap-3 pb-5 ml-3">
+            <div className="mt-[10.9em] flex items-center gap-3 pb-5 ml-3">
                 <p size={29} className="text-red-700 text-[24px]"><ImEnter /></p>
                 <button className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-red-700 font-medium tracking-wider'}`}>Logout</button>
             </div>
@@ -204,4 +181,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbarii

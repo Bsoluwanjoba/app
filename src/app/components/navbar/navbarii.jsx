@@ -58,21 +58,7 @@ function Navbarii() {
                             <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Dashboard</p>
                         </Link>
 
-                        <p className="flex gap-x-3 gap-y-5 p-3 items-center border border-[#116] rounded-md w-[200px] justify-center" onClick={toggleUsers}>
-                            <p><FaUser size={25} className="text-[#0ac]"/></p>
-                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Users
-                            
-                            </p>
-                            <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : ''}`}>{usersOpen ? <FaChevronUp size={15} className="text-[#0ac] font-medium tracking-wider"/> : <FaChevronDown size={15} className="text-[#0ac] font-medium tracking-wider"/>}</p>
-                            
-                        </p>
-
-                                            {usersOpen && (
-                                        <div className="pl-8 py-1 block text-[#0ac] font-medium tracking-wider leading-[60px]">
-                                        <Link href='/' className='border border-[#116] w-[150px] p-2 rounded-md space-y-3'>Consumers</Link> <br />
-                                        <Link href='/' className='border border-[#116] w-[190px] p-2 rounded-md'>Vendors</Link>
-                                        </div>
-                                        )}
+                      
 
                         <p className="flex gap-3 p-3 items-center  border border-[#116] w-[200px] rounded-md" onClick={toggleProducts}>
                             <p><MdProductionQuantityLimits size={25} className="text-[#0ac]"/></p>
@@ -131,21 +117,7 @@ function Navbarii() {
                 <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Dashboard</p>
             </Link>
 
-            <p className="flex gap-x-3 gap-y-5 p-3 items-center border-b-2 border-[#116]" onClick={toggleUsers}>
-                <p><FaUser size={25} className="text-[#0ac]"/></p>
-                <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Users
-                
-                </p>
-                <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : ''}`}>{usersOpen ? <FaChevronUp size={15} className="text-[#0ac] font-medium tracking-wider"/> : <FaChevronDown size={15} className="text-[#0ac] font-medium tracking-wider"/>}</p>
-                
-            </p>
-
-                                {usersOpen && (
-                            <div className="pl-8 py-2 block text-[#0ac] font-medium tracking-wider leading-8">
-                               <Link href='/'>Consumers</Link> <br />
-                               <Link href='/'>Vendors</Link>
-                            </div>
-                            )}
+           
 
             <p className="flex gap-3 p-3 items-center border-b-2 border-[#116]" onClick={toggleProducts}>
                 <p><MdProductionQuantityLimits size={25} className="text-[#0ac]"/></p>

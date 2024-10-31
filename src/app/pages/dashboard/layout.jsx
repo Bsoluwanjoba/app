@@ -9,9 +9,9 @@ export default function layout({children}) {
         <Header />
         </div>
 
-        <div className="flex md:gap-12 gap-0">
+        <div className="flex md:gap-4 gap-0">
             <p><Navbar /></p>
-            <p className="p-5 relative mx-auto">{children}</p>
+            <p className="p-16 relative mx-auto">{children}</p>
         </div>
     </div>
   )

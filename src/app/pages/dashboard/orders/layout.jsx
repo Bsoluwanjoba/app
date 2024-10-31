@@ -3,7 +3,7 @@ import OrdersPage from './order/order'
 
 export default function layout({children}) {
   return (
-    <div className='py-12'>
+    <div className='p-20'>
     <p><OrdersPage /></p>
     <p>{children}</p>
     </div>

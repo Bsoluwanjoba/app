@@ -127,11 +127,11 @@ function Navbar() {
             </p>
             
             <nav className=" mt-[0.5em] ml-[0.3em] ">
-            <Link href="/" className={`${
-        isLinkActive('/') ? 'bg-[#0ac] text-white rounded-md' : ''
+            <Link href="/pages/dashboard" className={`${
+        isLinkActive('/pages/dashboard') ? 'bg-[#0ac] text-white rounded-md' : 'bg-none'
     }  hover:rounded-md border-b-2 border-[#116] flex gap-3 p-3 text-[14px]`}>
-                <p><MdSpaceDashboard size={25} className="text-[#0ac]"/></p>
-                <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'}`}>Dashboard</p>
+                <p><MdSpaceDashboard size={25} className=""/></p>
+                <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : ' font-medium tracking-wider'}`}>Dashboard</p>
             </Link>
 
             <Link className={`flex gap-3 p-3 items-center border-b-2 border-[#116] text-[14px] ${
@@ -144,7 +144,7 @@ function Navbar() {
 
                                
 
-            <p className="flex gap-3 p-3 items-center border-b-2 border-[#116] text-[14px]" onClick={toggleProducts}>
+            <p className="flex gap-3 p-3 items-center border-b-2 border-[#116] text-[14px] cursor-pointer" onClick={toggleProducts}>
                 <p><MdProductionQuantityLimits size={25} className="text-[#0ac]"/></p>
                 <p className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-[#0ac] font-medium tracking-wider'} flex items-center gap-2`}>Products
                 </p>
@@ -152,8 +152,10 @@ function Navbar() {
             </p>
 
                             {productsOpen && (
-                        <div className="block pl-8 py-2  text-[#0ac] font-medium tracking-wider leading-8">
-                            <Link className="py-1 hover:bg-gray-100" href='/'>Product Inventory</Link> <br />
+                        <div className="block pl-8 py-2  text-[#0ac] font-medium tracking-wider leading-8 cursor-pointer">
+                            <Link className={`items-center border-b-2 border-[#116] text-[14px] p-2 ${
+        isLinkActive('/pages/dashboard/products') ? 'bg-[#0ac] text-white rounded-md' : 'text-[#0ac]'
+    }`} href='/pages/dashboard/products'>Product Inventory</Link> <br />
                             <Link className="py-1 hover:bg-gray-100" href='/'>Managing Products</Link>
                         </div>
                         )}
@@ -187,7 +189,7 @@ function Navbar() {
 
             <div className="mt-[4.7em] cursor-pointer flex items-center gap-3 pb-5 ml-3">
                 <p size={29} className="text-red-700 text-[24px]"><ImEnter /></p>
-                <button className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-red-700 font-medium tracking-wider'}`}>Logout</button>
+                <button className={`${!isOpen ? 'hidden transition-opacity duration-500' : 'text-red-700 font-medium tracking-wider text-[14px]'}`}>Logout</button>
             </div>
         </section>
     </div>
